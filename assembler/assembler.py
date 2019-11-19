@@ -172,9 +172,15 @@ for statement in final_statements:
 		#C type instruction
 		line_num+=1
 	elif '(' in statement and ')' in statement:
+
 		label=statement[1:len(statement)-1]
 		Labels.append(label)
-		label_code[label]=line_num
+		try:
+			dummy=label_code[label]
+			print("Label Repeated after insruction number ",line_num)
+		except:
+
+			label_code[label]=line_num
 	else:
 		print("Invalid Instruction, Please check syntax of Instruction number ", line_num+1)
 
