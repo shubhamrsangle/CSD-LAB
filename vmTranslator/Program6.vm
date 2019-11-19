@@ -1,0 +1,35 @@
+function Main.main 3
+push constant 2
+pop local 0
+push constant 2
+pop local 1
+push constant 3
+pop local 2
+push local 1
+push local 1
+call Math.multiply 2
+push constant 4
+push local 0
+call Math.multiply 2
+push local 2
+call Math.multiply 2
+sub
+pop static 0
+push local 1
+push static 0
+add
+push constant 2
+push local 0
+call Math.multiply 2
+call Math.divide 2
+pop static 1
+push local 1
+push static 0
+sub
+push constant 2
+push local 0
+call Math.multiply 2
+call Math.divide 2
+pop static 2
+push constant 0
+return

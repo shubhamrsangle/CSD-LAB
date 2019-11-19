@@ -1,0 +1,29 @@
+push constant 5 6
+push constant
+push
+pop local 3 4
+pop local
+pop
+add 2
+sub 2 3
+gt 3
+eq 4 5 6
+lt 2 3
+or A B
+and A B
+if-goto
+if-goto 4 5
+label MAIN_LOOP_START 3 5
+label
+vaishali
+return x y
+return 4
+goto x y
+goto
+call hello 4 5
+call hello
+call
+function now 4 5
+function now
+function
+

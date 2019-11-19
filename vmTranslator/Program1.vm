@@ -1,0 +1,15 @@
+pop static 8
+push pointer 1
+push local 0
+push that 5
+pop local 0
+pop argument 1
+push argument 1
+push this 6
+push temp 6
+pop that 5
+pop temp 6
+push constant 111
+pop pointer 1
+pop this 6
+push static 3
