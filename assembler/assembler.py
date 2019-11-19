@@ -129,12 +129,14 @@ def cTranslator(statement):
 		dest_bits=binary_dest[dest]
 	except:
 		print("Invalid Destination in Instruction")
+		dest_bits="555"
 
 	#Handling cmp
 	try:
 		cmp_bits=binary_cmp[cmp1]
 	except:
 		print("Invalid Comparison value in Instruction")
+		cmp_bits="555555"
 
 	#Handling Jmp
 
@@ -142,6 +144,7 @@ def cTranslator(statement):
 		jmp_bits=binary_jmp[jmp]
 	except:
 		print("Invalid Jump value in Instruction")
+		jmp_bits="555"
 
 	#Final finary instruction
 	binary_code=binary_code+a+cmp_bits+dest_bits+jmp_bits
@@ -150,7 +153,8 @@ def cTranslator(statement):
 
 
 #Main Function
-f=open("input.asm",'r')
+input_file=input("Input File Name\n")
+f=open(input_file,'r')
 content=f.read()
 f.close()
 f=open("output.hack",'w')
@@ -171,8 +175,10 @@ for statement in final_statements:
 		label=statement[1:len(statement)-1]
 		Labels.append(label)
 		label_code[label]=line_num
+	else:
+		print("Invalid Instruction, Please check syntax of Instruction number ", line_num+1)
 
-print("Labels and their line_num  are: ", label_code)
+#print("Labels and their line_num  are: ", label_code)
 #Seconf Pass for Translation
 for statement in final_statements:
 	if statement[0]=='@':
@@ -181,16 +187,16 @@ for statement in final_statements:
 		hackCode.append(translated)
 		f.write(translated)
 		f.write('\n')
-		print(statement, translated)
+		#print(statement, translated)
 	elif "=" in statement or ";" in statement:
 		#C type instruction
 		translated=cTranslator(statement)
 		hackCode.append(translated)
 		f.write(translated)
 		f.write('\n')
-		print(statement,translated)
+		#print(statement,translated)
 	else:
-		print("label")
+		continue
 f.close()
 
 
